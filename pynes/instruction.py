@@ -201,6 +201,7 @@ class BVC(Instruction, Branch):
 class BVS(Instruction, Branch):
     """Branch on Overflow Set"""
     def __call__(self):
+        print(self.__dict__)
         if self.status.v:
             self.core.pc = self.get_arg()
         else:

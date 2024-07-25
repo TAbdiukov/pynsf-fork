@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
 import math
-from pynes.corestatus import CoreStatus
-from pynes.stack import Stack
-from pynes.instructions import instruction_map
 
+try:
+	from pynes.corestatus import CoreStatus
+	from pynes.stack import Stack
+	from pynes.instructions import instruction_map
+except ImportError:
+	from corestatus import CoreStatus
+	from stack import Stack
+	from instructions import instruction_map
 
 class Core6502():
     
@@ -25,12 +30,13 @@ class Core6502():
         self.__init__()
         # the first 16 bytes are the NES file header - ignore it for now
         self.memory = data[16:]
+        return ;
 
     def run(self):
         while True:
-            inst = instruction_map[self.memory[self.pc]](self)
-            print(inst.description())
-            inst()
+            inst = instruction_map[self.memory[self.pc]]
+            print(inst.description(self))
+            inst(self)
             if not inst.is_branch:
                 self.pc += inst.num_bytes
 
