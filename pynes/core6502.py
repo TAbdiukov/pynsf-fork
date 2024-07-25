@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf8 -*-
 
 import math
 
@@ -12,7 +13,7 @@ except ImportError:
 	from instructions import instruction_map
 
 class Core6502():
-    
+
     def __init__(self):
         self._acc = 0;
         self._x = 0;
@@ -25,7 +26,7 @@ class Core6502():
     def load(self, nes_file):
         with open(nes_file, 'rb') as f:
             data = f.read()
-        
+
         # reset the core when loading
         self.__init__()
         # the first 16 bytes are the NES file header - ignore it for now
@@ -66,7 +67,7 @@ class Core6502():
     def y(self, value):
         self._y = value
         self.update_zero_neg(value)
-    
+
     def update_zero_neg(self, value):
         self.status.z = not value
         self.status.n = bool((value >> 6) & 0x01)
@@ -92,7 +93,7 @@ class Core6502():
         else:
             self.status.c = True
         return val
-    
+
     def set_status_from_value(self, valNew, valOrig, update_overflow=True):
         max_num = 0xFF
         self.status.s = False

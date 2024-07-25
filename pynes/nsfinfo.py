@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf8 -*-
+
 import struct
 
 
@@ -33,7 +35,7 @@ class NSFFile():
                 data = f.read()
         except IOError as e:
             raise NSFFileError('failed to read %s (%s)' % (nsf_file, str(e)))
-        
+
         info = struct.unpack(self._struct_format, data[:self._struct_len])
         if info[0] != self._nsf_magic:
             raise NSFFileError('%s is not a valid NSF file' % nsf_file)
@@ -94,10 +96,9 @@ class NSFFile():
         print('tune type:     %s' % self.tune_type)
         print('extra chips:   %s' % (', '.join(self.extra_sound_chips) if self.extra_sound_chips else 'none'))
 
-        
-        
+
+
 if __name__ == '__main__':
     import sys
     nsffile = NSFFile(sys.argv[1])
     nsffile.print_info()
-
