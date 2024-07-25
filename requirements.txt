@@ -1,0 +1,1 @@
+https://github.com/gutomaia/pyNES/archive/refs/heads/dependabot/pip/pillow-10.0.1.zip
