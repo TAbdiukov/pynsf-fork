@@ -1,6 +1,12 @@
 #!/usr/bin/env python
-from pynes.instruction import *
-from pynes.addressmode import *
+
+try:
+	from pynes.instruction import *
+	from pynes.addressmode import *
+except ImportError:
+	from instruction import *
+	from addressmode import *
+
 
 def create_instruction(func, mode):
     """creates a dynamic type using "func" and "mode" as base classes"""
