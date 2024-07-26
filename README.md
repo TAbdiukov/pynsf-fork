@@ -7,7 +7,8 @@ A Python-based NSF player
 
 * ImportError try-except blocks to allow portable use, which partially addresses issue [#1](https://github.com/bschlenk/pynsf/issues/1).
 * Fix Python3 conversion, so the 6502 opcodes can actually be run.
-* Lint and Shebang
+* Fix and refactor `nsfinfo.py`.
+* Lint and Shebang.
 
 -------------------------------------
 **Tim Abdiukov**
