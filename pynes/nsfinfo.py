@@ -90,7 +90,7 @@ class NSFFile():
          print('play address:  0x%08x' % self.play_address)
          print('ntsc speed:    %d' % self.ntsc_speed)
          print('pal speed:     %d' % self.pal_speed)
-        print('bankswitch:    0x%s' % self.bankswitch.hex())
+         print('bankswitch:    0x%s' % self.bankswitch.hex())
          print('ntsc/pal bits: %s' % bin(ord(self.ntsc_pal_bits)).ljust(8, '0'))
          print('snd chip bits: %s' % bin(ord(self.sound_chip_bits)).ljust(8, '0'))
          print('tune type:     %s' % self.tune_type)
