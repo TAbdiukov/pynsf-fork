@@ -94,6 +94,7 @@ class NSFFile():
          print('ntsc/pal bits: %s' % bin(ord(self.ntsc_pal_bits)).ljust(8, '0'))
          print('snd chip bits: %s' % bin(ord(self.sound_chip_bits)).ljust(8, '0'))
          print('tune type:     %s' % self.tune_type)
+         print('extra chips:   %s' % (', '.join(self.extra_sound_chips) if self.extra_sound_chips else 'none'))
 
 
 
